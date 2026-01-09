@@ -38,6 +38,12 @@ export function isEventCardType(obj: any): obj is EventCardType {
   return obj.type === TypeEnum.EVENT;
 }
 
+// 发现卡牌类
+export interface FindCardType extends CardType {}
+export function isFindCardType(obj: any): obj is PropCardType {
+  return obj.type === TypeEnum.FIND;
+}
+
 // 道具卡牌类
 export interface PropCardType extends CardType {
   // 是否为开局可获取的道具
@@ -63,6 +69,7 @@ export function isWeaknessCardType(obj: any): obj is WeaknessCardType {
 export type AllCardType =
   | ConsumableCardType
   | EventCardType
+  | FindCardType
   | PropCardType
   | StateCardType
   | WeaknessCardType;

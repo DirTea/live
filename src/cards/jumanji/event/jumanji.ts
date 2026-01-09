@@ -7,9 +7,9 @@ import BoardGame from "@/cards/basic/prop/board_game";
 const store = useOperate();
 const { onIsHave } = store;
 
-const CleanUp: EventCardType = {
-  id: `${ExEnum.BASIC}-${TypeEnum.EVENT}-4`,
-  ex: ExEnum.BASIC,
+const Jumanji: EventCardType = {
+  id: `${ExEnum.JUMANJI}-${TypeEnum.EVENT}-1`,
+  ex: ExEnum.JUMANJI,
   name: "勇敢者的游戏",
   illustration: "",
   content: "",
@@ -18,9 +18,10 @@ const CleanUp: EventCardType = {
   phase: 2,
   play: () => {
     if (onIsHave({ id: BoardGame.id })) {
+      // 将当前事件牌堆变为“勇敢者的游戏”牌堆
     } else {
     }
   },
 };
 
-export default CleanUp;
+export default Jumanji;

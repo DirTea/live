@@ -3,7 +3,7 @@ import { ExEnum } from "@/enums/ex_enum";
 import { TypeEnum } from "@/enums/type_enum";
 
 const Radaway: PropCardType = {
-  id: `${ExEnum.BASIC}-${TypeEnum.PROP}-4`,
+  id: `${ExEnum.BASIC}-${TypeEnum.PROP}-3`,
   ex: ExEnum.BASIC,
   name: "消辐宁",
   illustration: "",

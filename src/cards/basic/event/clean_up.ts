@@ -4,10 +4,12 @@ import { TypeEnum } from "@/enums/type_enum";
 import { useOperate } from "@/stores/use_operate";
 import { TagEnum } from "@/enums/tag_enum";
 import { storeToRefs } from "pinia";
+import Souterrain from "@/cards/basic/find/souterrain";
 
 const store = useOperate();
 const { testIsConfirm, useIsConfirm } = storeToRefs(store);
-const { onWait, onTest, onTestResolution, onUse, onUseResolution } = store;
+const { onWait, onTest, onTestResolution, onUse, onUseResolution, onGain } =
+  store;
 
 const CleanUp: EventCardType = {
   id: `${ExEnum.BASIC}-${TypeEnum.EVENT}-3`,
@@ -18,7 +20,7 @@ const CleanUp: EventCardType = {
     "你不是洁癖或者强迫症患者，你只是想找件事情做不让自己无所事事，所以你打算搬开所有的床和柜子，来次畅快淋漓地大扫除",
   type: TypeEnum.EVENT,
   tag: [TagEnum.GOVERNMENT],
-  phase: 2,
+  phase: 1,
   play: () => {
     onTest();
     onWait(testIsConfirm, () => {
@@ -35,6 +37,7 @@ const CleanUp: EventCardType = {
           // 发现了类似卵状物
         } else if (val <= 20) {
           // 发现了地下通道
+          onGain(Souterrain, 1, "");
         }
       });
     });

@@ -4,7 +4,7 @@ import { TypeEnum } from "@/enums/type_enum";
 import { useOperate } from "@/stores/use_operate";
 import Can from "@/cards/basic/consumable/can";
 import Water from "@/cards/basic/consumable/water";
-import OverdueLottery from "@/cards/basic/prop/overdue_lottery";
+import OverdueLottery from "@/cards/basic/find/overdue_lottery";
 import _random from "lodash/random";
 import { basicPropList } from "@/cards";
 import BoardGame from "@/cards/basic/prop/board_game";

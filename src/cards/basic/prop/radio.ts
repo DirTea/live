@@ -3,7 +3,7 @@ import { ExEnum } from "@/enums/ex_enum";
 import { TypeEnum } from "@/enums/type_enum";
 
 const Radio: PropCardType = {
-  id: `${ExEnum.BASIC}-${TypeEnum.PROP}-5`,
+  id: `${ExEnum.BASIC}-${TypeEnum.PROP}-4`,
   ex: ExEnum.BASIC,
   name: "收音机",
   illustration: "",

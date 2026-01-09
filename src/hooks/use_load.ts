@@ -15,13 +15,13 @@ import {
   basicStateList,
 } from "@/cards";
 import FourLeafClover from "@/cards/basic/prop/four_leaf_clover";
-import OverdueLottery from "@/cards/basic/prop/overdue_lottery";
+import OverdueLottery from "@/cards/basic/find/overdue_lottery";
 import Anarchism from "@/cards/basic/state/anarchism";
 import WasteTime from "@/cards/basic/state/waste_time";
-import Jumanji from "@/cards/basic/event/jumanji";
 import BoardGame from "@/cards/basic/prop/board_game";
 import Radaway from "@/cards/basic/prop/radaway";
 import Radio from "@/cards/basic/prop/radio";
+import PartyTime from "@/cards/basic/event/party_time";
 
 let isLoad = false;
 export const useLoad = () => {
@@ -32,7 +32,7 @@ export const useLoad = () => {
         Aid,
         BoxOfMystery,
         CleanUp,
-        Jumanji,
+        PartyTime,
         RadioresistanceExperiment,
         TheLatestAnnouncement,
         TimeTraveller,

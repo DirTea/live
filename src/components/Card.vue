@@ -4,7 +4,7 @@ import { useOperate } from "@/stores/use_operate";
 import { TypeEnum } from "@/enums/type_enum";
 import type { PropType } from "@vue/runtime-core";
 import { computed } from "vue";
-import favicon from "../static/favicon.svg";
+import favicon from "../static/icon.png";
 import cardImg from "../static/card.jpg";
 import { storeToRefs } from "pinia";
 
