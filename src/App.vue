@@ -12,5 +12,4 @@ onHide(() => {
 </script>
 <style lang="scss">
 @import "style";
-@import "uview-plus/index.scss";
 </style>
