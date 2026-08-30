@@ -2,10 +2,10 @@
   <view
     style="
       background-color: white;
-      margin: 0.5rem 1rem 0 1rem;
-      padding: 0.5rem 0.5rem;
-      font-size: 0.875rem;
-      line-height: 1.25rem;
+      margin: 16rpx 32rpx 0 32rpx;
+      padding: 16rpx;
+      font-size: 28rpx;
+      line-height: 36rpx;
       box-shadow: 0 0 20px 0 rgba(85, 137, 255, 0.2);
       border-radius: 10px;
     "

@@ -1,25 +1,24 @@
 <template>
   <z-paging ref="paging" v-model="dataList" @query="queryList">
     <template #top>
-      <view style="
-        display: flex;
-        align-items: center;
-        padding: 0.5rem 1rem;
-        background-color: white;
-      ">
-        <t-search placeholder="请输入关键词" style="width: 100%" v-model:value="params.searchValue" @change="refresh" />
+      <view style="margin: 16rpx 32rpx 16rpx 32rpx;">
+        <t-search style="width: 100%" placeholder="请输入关键词" v-model:value="params.searchValue" @change="refresh" />
+        <view style="width: 100%;margin-top: 16rpx;display: flex;align-items: center;">
+          <view style="flex-shrink: 0">人数：</view>
+          <t-slider label="${value}" :min="1" :max="12" range v-model:value="params.players" />
+        </view>
       </view>
     </template>
     <CusList :list="dataList">
       <template v-slot:item="{ item }">
         <Card>
-          <view style="display: flex;gap: 0.5rem;">
+          <view style="display: flex;gap: 24rpx;">
             <Cover :src="item.cover" />
-            <view style="display: flex;flex-direction:column;justify-content: space-between;flex: 1;margin: 0.2rem 0;">
+            <view style="display: flex;flex-direction:column;justify-content: space-between;flex: 1;margin: 10rpx 0;">
               <view>
                 <view style="display: flex;justify-content: space-between">
                   <view style="font-size: 1rem;font-weight: 700">{{ item.name }}</view>
-                  <view style="margin-right: 0.5rem;">{{ playersComputed(item.players) }}人</view>
+                  <view style="margin-right: 10rpx;">{{ playersComputed(item.players) }}人</view>
                 </view>
                 <view>类型：{{ item.type }}</view>
               </view>
@@ -42,12 +41,13 @@ import { isConsecutive } from "@/utils/other";
 
 const params = ref({
   searchValue: "",
+  players: [0, 12]
 });
 
 const paging = ref<ZPagingRef>();
 const dataList = ref([]);
 const queryList = (pageNum: number, pageSize: number) => {
-  GameListApi(pageNum, pageSize, params.value.searchValue).then(res=> {
+  GameListApi(pageNum, pageSize, params.value).then(res=> {
     paging.value?.complete(res.data.list);
   })
 };

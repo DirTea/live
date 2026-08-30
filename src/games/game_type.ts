@@ -1,4 +1,5 @@
 import Fuse from "fuse.js";
+import { toRaw } from 'vue'
 
 export interface GameType {
     // 封面
@@ -13,26 +14,27 @@ export interface GameType {
     players: number[];
 }
 
-export function GameListApi(pageNum: number, pageSize: number, params: string) {
+export function GameListApi(pageNum: number, pageSize: number, params: any) {
     return new Promise((resolve) => {
         // 模拟网络请求延迟 (例如 300ms - 800ms)
         const delay = Math.floor(Math.random() * 500) + 300;
         setTimeout(() => {
+            const fuse = new Fuse(GameList.filter(el => toRaw(params.players).every((e: any) => el.players.includes(e))), {
+                threshold: 0,
+                keys: ['name', 'type', 'tag'],
+            })
+            const results = fuse.search(params.searchValue)
             // 计算数据的起始索引
             const start = (pageNum - 1) * pageSize;
             const end = start + pageSize;
             // 使用 slice 方法进行数组截取，实现分页
-            const data = GameList.slice(start, end);
-            const fuse = new Fuse(data, {
-                keys: ['name', 'type', 'tag']
-            })
-            const results = fuse.search(params)
+            const data = results.slice(start, end);
             // 构造返回结果，符合常见后端 API 格式
             const result = {
                 code: 200,             // 状态码
                 msg: 'success',        // 提示信息
                 data: {
-                    list: results,          // 当前页数据列表
+                    list: data,          // 当前页数据列表
                     total: GameList.length, // 数据总条数
                     pageNum: pageNum,    // 当前页码
                     pageSize: pageSize   // 每页条数
