@@ -41,7 +41,7 @@ import { isConsecutive } from "@/utils/other";
 
 const params = ref({
   searchValue: "",
-  players: [0, 12]
+  players: [2, 4]
 });
 
 const paging = ref<ZPagingRef>();
